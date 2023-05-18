@@ -9,7 +9,7 @@ class App extends Component {
 
   async componentDidMount() {
     const { data } = await axios.get(
-      `https://thesimpsonsquoteapi.glitch.me/quotes?count=5`
+      `https://thesimpsonsquoteapi.glitch.me/quotes?count=50`
     );
     this.setState({ simpsons: data });
   }
@@ -19,7 +19,12 @@ class App extends Component {
 
     if (!simpsons) return <Loading />;
 
-    return <Simpsons simpsons={simpsons} />;
+    return (
+      <>
+        <h1>Total no of liked chars #</h1>
+        <Simpsons simpsons={simpsons} />
+      </>
+    );
   }
 }
 
